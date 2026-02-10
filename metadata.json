@@ -1,0 +1,7 @@
+{
+  "name": "Sironam News Portal",
+  "description": "A premium Bengali news portal with an administrative dashboard for news management and automated downloadable social media news cards.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
