@@ -5,21 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sironam - Premium News Portal</title>
+    
+    <!-- External Styles and Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+    
     <style>
         body {
             font-family: 'Hind Siliguri', 'Inter', sans-serif;
             background-color: #f8fafc;
-            margin: 0;
-            padding: 0;
         }
         .bg-sironam { background-color: #063034; }
         .text-sironam { color: #063034; }
         .border-sironam { border-color: #063034; }
+        
+        /* Smooth transitions */
+        .transition-all { transition: all 0.3s ease; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #063034; border-radius: 10px; }
         
         #root:empty::before {
             content: 'শিরোনাম লোড হচ্ছে...';
@@ -28,24 +39,12 @@
             align-items: center;
             height: 100vh;
             color: #063034;
-            font-size: 1.5rem;
             font-weight: bold;
-        }
-
-        #error-display {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: white;
-            z-index: 9999;
-            padding: 20px;
-            text-align: center;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            font-size: 1.2rem;
         }
     </style>
-<script type="importmap">
+
+    <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@19.0.0",
@@ -61,22 +60,8 @@
 </head>
 <body>
     <div id="root"></div>
-    <div id="error-display">
-        <h2 class="text-xl font-bold text-red-600 mb-2">অ্যাপ্লিকেশনটি লোড হতে পারছে না</h2>
-        <p class="text-gray-600 mb-4">গিটহাবে সরাসরি .tsx ফাইল সাপোর্ট করে না। কোডটি 'Build' করে আপলোড করুন।</p>
-        <button onclick="location.reload()" class="bg-sironam text-white px-4 py-2 rounded">আবার চেষ্টা করুন</button>
-    </div>
 
-    <!-- GitHub Pages friendly module loading -->
-    <script type="module" src="./index.tsx"></script>
-
-    <script>
-        // Catch loading errors
-        window.addEventListener('error', function(e) {
-            if (e.message.toLowerCase().includes('mime') || e.message.toLowerCase().includes('failed to load')) {
-                document.getElementById('error-display').style.display = 'flex';
-            }
-        });
-    </script>
+    <!-- Babel handles the JSX transformation in-browser for GitHub Pages -->
+    <script type="text/babel" data-type="module" src="index.tsx"></script>
 </body>
 </html>
