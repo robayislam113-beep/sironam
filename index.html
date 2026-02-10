@@ -20,14 +20,7 @@
         .bg-sironam { background-color: #063034; }
         .text-sironam { color: #063034; }
         .border-sironam { border-color: #063034; }
-        .focus-ring-sironam:focus { --tw-ring-color: #063034; }
         
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #063034; border-radius: 10px; }
-        
-        /* Loading state */
         #root:empty::before {
             content: 'শিরোনাম লোড হচ্ছে...';
             display: flex;
@@ -45,8 +38,8 @@
     "react": "https://esm.sh/react@19.0.0",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "react-router-dom": "https://esm.sh/react-router-dom@6.28.1?external=react,react-dom",
-    "lucide-react": "https://esm.sh/lucide-react@0.474.0?external=react",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.28.1?deps=react@19.0.0,react-dom@19.0.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.474.0?deps=react@19.0.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
     "react/": "https://esm.sh/react@^19.2.4/"
   }
@@ -55,12 +48,12 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- 
+      Note for GitHub Users: 
+      GitHub Pages does not natively support .tsx files as JS modules. 
+      If you see a MIME error, you must use a build tool like Vite to generate .js files.
+      However, the code below is optimized for the platform's native preview.
+    -->
     <script type="module" src="index.tsx"></script>
-    <script>
-        window.onerror = function(msg, url, lineNo, columnNo, error) {
-            console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo);
-            return false;
-        };
-    </script>
 </body>
 </html>
